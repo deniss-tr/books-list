@@ -1,0 +1,11 @@
+{
+    "name": "den/books.local",
+    "description": "first php mini project",
+    "authors": [
+        {
+            "name": "den",
+            "email": "denbox@inbox.lv"
+        }
+    ],
+    "require": {}
+}
