@@ -1,27 +1,86 @@
-<!DOCTYPE html>
-<html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <title>admin panel</title>
-  </head>
-  <body>
-    <div class="my-3 p-3 bg-white rounded shadow-sm">
-    <a href='/'><strong class="d-inline">Index list</strong></a>
-    <div class="float-right">
-      <a href='#'><strong class="d-inline">Add Author</strong></a>
-      <span> | </span>
-      <a href='#'><strong class="d-inline">Add Book</strong></a>
-    </div>
-    <h6 class="border-bottom border-gray pb-2 mb-0">Books</h6>
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Add author</title>
+	<!-- Bootstrap core CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
-    <?php
-      include '..\templates\admin-list.php';
-    ?>
-
-    <!-- <small class="d-block text-right mt-3">
-      <a href="#">All suggestions</a>
-    </small> -->
-  </div>
-  </body>
+	<!-- Custom styles for this template -->
+	<link href="..\styles.css" rel="stylesheet">
+</head>
+<body class="text-center">
+	<div class="alert alert-success add-record" role="alert">
+	New record has been added!
+	</div>
+	<div class="alert alert-primary remove-record" role="alert">
+		Record has been removed!
+	</div>
+	<br>
+	<a href="#">Add Book</a>
+	<span> / </span>
+	<a href="#">Add Author</a>
+	<div class="main">
+	<div class="bd-tables">
+		<h3>Books</h3>
+		<table class="table">
+		  <thead class="thead-dark">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Title</th>
+			  <th scope="col">Author</th>
+			  <th scope="col">Remove</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>PHP</td>
+			  <td>Den</td>
+			  <td><a href='#'>remove</a></td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>JS</td>
+			  <td>Den</td>
+			  <td><a href='#'>remove</a></td>
+			</tr>
+			<tr>
+			  <th scope="row">3</th>
+			  <td>Hair</td>
+			  <td>Nana</td>
+			  <td><a href='#'>remove</a></td>
+			</tr>
+		  </tbody>
+		</table>
+		<br>
+		<h3>Authors</h3>
+		<table class="table">
+		  <thead class="thead-light">
+			<tr>
+			  <th scope="col">#</th>
+			  <th scope="col">Name</th>
+			  <th scope="col">Books count</th>
+			  <th scope="col">Remove</th>
+			</tr>
+		  </thead>
+		  <tbody>
+			<tr>
+			  <th scope="row">1</th>
+			  <td>Den</td>
+			  <td>2</td>
+			  <td><a href='#'>remove</a></td>
+			</tr>
+			<tr>
+			  <th scope="row">2</th>
+			  <td>Nana</td>
+			  <td>1</td>
+			  <td><a href='#'>remove</a></td>
+			</tr>
+		  </tbody>
+		</table>
+	</div>
+	</div>
+</body>
 </html>
