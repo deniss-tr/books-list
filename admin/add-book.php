@@ -8,12 +8,12 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="styles.css" rel="stylesheet">
+    <link href="..\styles.css" rel="stylesheet">
   </head>
   <body class="text-center">
   <div class="main">
 		<form class="form-add">
-			<h1 class="h3 mb-3 font-weight-normal">Add book</h1>    
+			<h1 class="h3 mb-3 font-weight-normal">Add book</h1>
 			<label for="author" class="sr-only">author</label>
 			<input type="text" id="author" class="form-control" placeholder="name" required autofocus>
 			<br>

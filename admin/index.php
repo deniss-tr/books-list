@@ -1,3 +1,17 @@
+<?php
+require "..\lib.inc.php";
+
+if($author = $_POST['author']){
+	addAuthor($author);
+	header("Location: index.php");
+	exit;
+}
+
+$arr = selectAllBooks();
+$authorsArr = selectAllAuthors($arr); // Костыль !!
+
+?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -12,15 +26,15 @@
 </head>
 <body class="text-center">
 	<div class="alert alert-success add-record" role="alert">
-	New record has been added!
+		New record has been added!
 	</div>
 	<div class="alert alert-primary remove-record" role="alert">
 		Record has been removed!
 	</div>
 	<br>
-	<a href="#">Add Book</a>
+	<a href="add-book.php">Add Book</a>
 	<span> / </span>
-	<a href="#">Add Author</a>
+	<a href="add-author.php">Add Author</a>
 	<div class="main">
 	<div class="bd-tables">
 		<h3>Books</h3>
@@ -34,50 +48,26 @@
 			</tr>
 		  </thead>
 		  <tbody>
-			<tr>
-			  <th scope="row">1</th>
-			  <td>PHP</td>
-			  <td>Den</td>
-			  <td><a href='#'>remove</a></td>
-			</tr>
-			<tr>
-			  <th scope="row">2</th>
-			  <td>JS</td>
-			  <td>Den</td>
-			  <td><a href='#'>remove</a></td>
-			</tr>
-			<tr>
-			  <th scope="row">3</th>
-			  <td>Hair</td>
-			  <td>Nana</td>
-			  <td><a href='#'>remove</a></td>
-			</tr>
+				<?php
+		      include '..\templates\admin-books-list.php';
+		    ?>
 		  </tbody>
 		</table>
 		<br>
 		<h3>Authors</h3>
 		<table class="table">
 		  <thead class="thead-light">
-			<tr>
-			  <th scope="col">#</th>
-			  <th scope="col">Name</th>
-			  <th scope="col">Books count</th>
-			  <th scope="col">Remove</th>
-			</tr>
-		  </thead>
-		  <tbody>
-			<tr>
-			  <th scope="row">1</th>
-			  <td>Den</td>
-			  <td>2</td>
-			  <td><a href='#'>remove</a></td>
-			</tr>
-			<tr>
-			  <th scope="row">2</th>
-			  <td>Nana</td>
-			  <td>1</td>
-			  <td><a href='#'>remove</a></td>
-			</tr>
+				<tr>
+					<th scope="col">#</th>
+					<th scope="col">Author</th>
+					<th scope="col">Books count</th>
+					<th scope="col">Remove</th>
+				</tr>
+				</thead>
+				<tbody>
+				<?php
+		      include '..\templates\admin-authors-list.php';
+		    ?>
 		  </tbody>
 		</table>
 	</div>
