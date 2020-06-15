@@ -73,6 +73,7 @@ function removeAuthor($id)
   global $link;
   $sql = "DELETE FROM authors WHERE Id = $id";
   if(!mysqli_query($link, $sql)) return false;
+  return true;
 }
 function removeBook($id)
 {

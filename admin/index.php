@@ -1,6 +1,10 @@
 <?php
 require "..\lib.inc.php";
 require "router.php";
+if ( $_SESSION['notice'] ) {
+    print $_SESSION['notice'];
+    unset($_SESSION['notice']);
+}
 
 
 $all = selectAll();
@@ -20,15 +24,6 @@ $all = selectAll();
 	<link href="..\styles.css" rel="stylesheet">
 </head>
 <body class="text-center">
-	<div class="alert alert-success add-record" role="alert">
-		New record has been added!
-	</div>
-	<div class="alert alert-primary remove-record" role="alert">
-		Record has been removed!
-	</div>
-	<div class="alert alert-danger remove-record" role="alert">
-		You can't delete author!
-	</div>
 	<br>
 	<a href="/admin/book">Add Book</a>
 	<span> / </span>
