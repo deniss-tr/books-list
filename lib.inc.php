@@ -41,9 +41,42 @@ function selectAll()
 
   return ['books' => $books, 'authors' => $authorsWithBooks];
 }
+function allAuthors()
+{
+  global $link;
+  $sql = 'SELECT * FROM authors';
+  if(!$result = mysqli_query($link, $sql)) return false;
+  $authors = mysqli_fetch_all($result, MYSQLI_ASSOC);
+  mysqli_free_result($result);
+  return $authors;
+}
 function addAuthor($author)
 {
   global $link;
   $sql = "INSERT INTO authors (Name) VALUES ('$author')";
+  if(!mysqli_query($link, $sql)) return false;
+}
+function addBook($book, $author)
+{
+
+  global $link;
+  $sql = "SELECT Id FROM authors WHERE Name = '$author'";
+  if(!$result = mysqli_query($link, $sql)) return false;
+  $author = mysqli_fetch_array($result, MYSQLI_ASSOC);
+  $authorId = (int) $author['Id'];
+
+  $sql = "INSERT INTO books (AuthorId, Title) VALUES ($authorId, '$book')";
+  if(!$result = mysqli_query($link, $sql)) return false;
+}
+function removeAuthor($id)
+{
+  global $link;
+  $sql = "DELETE FROM authors WHERE Id = $id";
+  if(!mysqli_query($link, $sql)) return false;
+}
+function removeBook($id)
+{
+  global $link;
+  $sql = "DELETE FROM books WHERE Id = $id";
   if(!mysqli_query($link, $sql)) return false;
 }

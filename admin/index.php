@@ -1,11 +1,7 @@
 <?php
 require "..\lib.inc.php";
+require "router.php";
 
-if($author = $_POST['author']){
-	addAuthor($author);
-	header("Location: index.php");
-	exit;
-}
 
 $all = selectAll();
 
@@ -29,6 +25,9 @@ $all = selectAll();
 	</div>
 	<div class="alert alert-primary remove-record" role="alert">
 		Record has been removed!
+	</div>
+	<div class="alert alert-danger remove-record" role="alert">
+		You can't delete author!
 	</div>
 	<br>
 	<a href="/admin/book">Add Book</a>

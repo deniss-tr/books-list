@@ -7,7 +7,7 @@ foreach($all['authors'] as $a){
   <th scope="row"><?= $i ?></th>
   <td><?= $a['Name'] ?></td>
   <td><?= count($a['books']) ?></td>
-  <td><a href='/admin/author/remove.php?id=<?=$a['Id']?>'>remove</a></td>
+  <td><a href='/admin/?rem-a=<?=$a['Id']?>'>remove</a></td>
 </tr>
 <tr>
 <? } ?>

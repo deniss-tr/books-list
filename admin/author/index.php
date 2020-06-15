@@ -12,7 +12,7 @@
   </head>
   <body class="text-center">
 	<div class="main">
-		<form class="form-add" action="index.php" method="POST">
+		<form class="form-add" action="/admin/" method="POST">
 		  <h1 class="h3 mb-3 font-weight-normal">Add author</h1>
 		  <label for="author" class="sr-only">author</label>
 		  <input type="text" id="author" name="author" class="form-control" placeholder="name" required autofocus>

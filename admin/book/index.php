@@ -1,3 +1,9 @@
+<?php
+  require "..\..\lib.inc.php";
+  $authors = allAuthors();
+  console_log($authors);
+?>
+
 <!doctype html>
 <html lang="en">
   <head>
@@ -12,17 +18,18 @@
   </head>
   <body class="text-center">
   <div class="main">
-		<form class="form-add">
+		<form class="form-add" action="/admin/" method="POST">
 			<h1 class="h3 mb-3 font-weight-normal">Add book</h1>
-			<label for="author" class="sr-only">author</label>
-			<input type="text" id="author" class="form-control" placeholder="name" required autofocus>
+			<label for="book" class="sr-only">author</label>
+			<input type="text" name="book" id="book" class="form-control" placeholder="name" required autofocus>
 			<br>
 			<div>
-				<label for="author">Select author</label>
-				<select class="custom-select d-block w-100" id="author" required>
+				<label for="author-name">Select author</label>
+				<select name="author-name" class="custom-select d-block w-100" id="author-name" required>
 					<option value="">Choose...</option>
-					<option>Den</option>
-					<option>Nana</option>
+          <?php foreach($authors as $author): ?>
+					  <option><?=$author['Name']?></option>
+          <?php endforeach; ?>
 				</select>
 			</div>
 			<br>
