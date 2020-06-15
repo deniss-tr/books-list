@@ -6,46 +6,40 @@ const DB_NAME = 'bookdb';
 
 $link = mysqli_connect(DB_HOST, DB_LOGIN, DB_PASSWORD, DB_NAME);
 
-function selectAllBooks()
+function console_log($output, $with_script_tags = true) {
+    $js_code = 'console.log(' . json_encode($output, JSON_HEX_TAG) .
+');';
+    if ($with_script_tags) {
+        $js_code = '<script>' . $js_code . '</script>';
+    }
+    echo $js_code;
+}
+
+function selectAll()
 {
   global $link;
-  //Как правильно составлять запрос чтобы данные приходили с разных таблиц и правильно ссылались по вторичному ИД?
+//get BOOKS
   $sql = 'SELECT books.*, authors.name FROM books LEFT JOIN authors ON books.AuthorId = authors.id';
   if(!$result = mysqli_query($link, $sql)) return false;
   $books = mysqli_fetch_all($result, MYSQLI_ASSOC);
   mysqli_free_result($result);
-
-  $authors = [];
-  foreach($books as $book){
-    $authors[$book['name']][] = $book['Title'];
-  }
-
-  return ['books' => $books, 'authors' => $authors];
-}
-function selectAllAuthors($arr)
-{
-  global $link;
-  $sql = "SELECT * FROM authors";
+//get Authors
+  $sql = 'SELECT * FROM authors';
   if(!$result = mysqli_query($link, $sql)) return false;
   $authors = mysqli_fetch_all($result, MYSQLI_ASSOC);
   mysqli_free_result($result);
-
-  $authorsWithBooks = [];
-  foreach($arr['authors'] as $authorName => $books){
-    $authorsWithBooks[$authorName] = count($books);
-  }
-  $allAuthors = [];
-  foreach($authors as $author){
-    $name = $author['Name'];
-    if(array_key_exists($name, $authorsWithBooks)){
-      $booksCount = $authorsWithBooks[$name];
-      $allAuthors[$name] = $booksCount;
-      continue;
-    }
-    $allAuthors[$name] = 0;
+//join authors and books
+  $arr = [];
+  foreach($books as $book){
+    $arr[$book['name']][] = $book['Title'];
   }
 
-  return $allAuthors;
+  $authorsWithBooks = array_map(function($author) use ($arr){
+    $author['books'] = $arr[$author['Name']];
+    return $author;
+  },$authors);
+
+  return ['books' => $books, 'authors' => $authorsWithBooks];
 }
 function addAuthor($author)
 {

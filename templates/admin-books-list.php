@@ -1,7 +1,7 @@
 <?php
 
 $i = 0;
-foreach($arr['books'] as $book){
+foreach($all['books'] as $book){
   $i += 1;
 ?>
 <tr>

@@ -1,13 +1,13 @@
 <?php
-$a = 0;
-foreach($authorsArr as $name => $count){
-  $a += 1;
+$i = 0;
+foreach($all['authors'] as $a){
+  $i += 1;
 ?>
 <tr>
-  <th scope="row"><?= $a ?></th>
-  <td><?= $name ?></td>
-  <td><?= $count ?></td>
-  <td><a href='#'>remove</a></td>
+  <th scope="row"><?= $i ?></th>
+  <td><?= $a['Name'] ?></td>
+  <td><?= count($a['books']) ?></td>
+  <td><a href='/admin/author/remove.php?id=<?=$a['Id']?>'>remove</a></td>
 </tr>
 <tr>
 <? } ?>

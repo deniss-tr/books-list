@@ -7,8 +7,7 @@ if($author = $_POST['author']){
 	exit;
 }
 
-$arr = selectAllBooks();
-$authorsArr = selectAllAuthors($arr); // Костыль !!
+$all = selectAll();
 
 ?>
 
@@ -32,9 +31,9 @@ $authorsArr = selectAllAuthors($arr); // Костыль !!
 		Record has been removed!
 	</div>
 	<br>
-	<a href="add-book.php">Add Book</a>
+	<a href="/admin/book">Add Book</a>
 	<span> / </span>
-	<a href="add-author.php">Add Author</a>
+	<a href="/admin/author">Add Author</a>
 	<div class="main">
 	<div class="bd-tables">
 		<h3>Books</h3>

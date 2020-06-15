@@ -8,7 +8,7 @@
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
 
     <!-- Custom styles for this template -->
-    <link href="..\styles.css" rel="stylesheet">
+    <link href="..\..\styles.css" rel="stylesheet">
   </head>
   <body class="text-center">
   <div class="main">
@@ -27,7 +27,7 @@
 			</div>
 			<br>
 			<button class="btn btn-lg btn-primary btn-block" type="submit">Add new</button>
-			<p class="mt-5 mb-3 text-muted"><a href='#'>back to list</a></p>
+			<p class="mt-5 mb-3 text-muted"><a href='/admin'>back to list</a></p>
 		</form>
 	</div>
 </body>
