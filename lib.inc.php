@@ -81,3 +81,8 @@ function removeBook($id)
   $sql = "DELETE FROM books WHERE Id = $id";
   if(!mysqli_query($link, $sql)) return false;
 }
+function clearText($text){
+  $text = trim($text);
+  $text = strip_tags($text);
+  return $text;
+}

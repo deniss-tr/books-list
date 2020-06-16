@@ -24,7 +24,7 @@ $all = selectAll();
 	<link href="..\styles.css" rel="stylesheet">
 </head>
 <body class="text-center">
-	<br>
+  <p><a href="/">Back to list</a></p>
 	<a href="/admin/book">Add Book</a>
 	<span> / </span>
 	<a href="/admin/author">Add Author</a>

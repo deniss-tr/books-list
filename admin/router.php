@@ -1,5 +1,6 @@
 <?php
 if($author = $_POST['author']){
+  $author = clearText($author);
   $text = "<div class='alert alert-success add-record' role='alert'>
   		New Author has been added!
   	</div>";
@@ -7,6 +8,7 @@ if($author = $_POST['author']){
 	addAuthor($author);
 }
 if($book = $_POST['book']){
+  $book = clearText($book);
   $text = "<div class='alert alert-success add-record' role='alert'>
       New Book has been added!
     </div>";

@@ -18,7 +18,7 @@
     ?>
 
     <small class="d-block text-right mt-3">
-      <a href="#">All suggestions</a>
+      Full list
     </small>
   </div>
   </body>
