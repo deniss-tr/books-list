@@ -29,8 +29,6 @@ if($id = $_GET['rem-a']){
     	</div>";
   }
   $_SESSION['notice'] = $text;
-	// header("Location: /admin/");
-	// exit;
 }
 if($id = $_GET['rem-b']){
   $text = "<div class='alert alert-primary remove-record' role='alert'>
@@ -38,6 +36,4 @@ if($id = $_GET['rem-b']){
   </div>";
   $_SESSION['notice'] = $text;
 	removeBook($id);
-	// header("Location: /admin/");
-	// exit;
 }
